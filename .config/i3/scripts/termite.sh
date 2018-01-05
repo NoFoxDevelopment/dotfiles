@@ -1,5 +1,6 @@
 #!/bin/bash
 
-(termite --title=Matrix -e 'bash -c "cmatrix -BC blue && bash"' --hold &)
-(termite --title=Neofetch -e 'bash -c "neofetch && bash"' --hold &)
+(termite --title=Matrix -e 'zsh -c "cmatrix -BC blue && zsh"' --hold &)
+(termite --title=Neofetch -e 'zsh -c "neofetch"' --hold &)
+(termite --title=Terminal &)
 (termite --title=Terminal &)

@@ -12,7 +12,7 @@
             "border": "normal",
             "floating": "auto_off",
             "layout": "splith",
-            "percent": 0.42,
+            "percent": 0.38,
             "type": "con",
             "nodes": [
                 {
@@ -50,7 +50,7 @@
                "y": 0
             },
             "name": "Matrix",
-            "percent": 0.58,
+            "percent": 0.62,
             "swallows": [
                {
                "class": "^Termite$",
