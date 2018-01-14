@@ -3,7 +3,7 @@
 #audible_bell = false
 #clickable_url = true
 #dynamic_title = true
-font = Monospace 9
+font = IBM 3270 Bold 10.5
 #fullscreen = true
 #geometry = 640x480
 #icon_name = terminal
@@ -49,7 +49,7 @@ scrollback_lines = 10000
 #background = #3f3f3f
 
 # 20% background transparency (requires a compositor)
-background = rgba(30, 40, 70, 0.8)
+background = rgba(30, 40, 70, 0.85)
 
 # If unset, will reverse foreground and background
 highlight = #2f2f2f

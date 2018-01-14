@@ -101,6 +101,12 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 
+# set workspaces to specific monitors
+workspace "2: " output DP-2
+workspace "3: " output DP-2
+workspace "1: " output DP-1
+workspace "0: " output DP-3
+
 # switch to workspace
 bindsym $mod+1 workspace $ws0
 bindsym $mod+2 workspace $ws1
@@ -124,6 +130,13 @@ bindsym $mod+Shift+7 move container to workspace $ws6
 bindsym $mod+Shift+8 move container to workspace $ws7
 bindsym $mod+Shift+9 move container to workspace $ws8
 bindsym $mod+Shift+0 move container to workspace $ws9
+
+##=====================================##
+#       Workspace specific settings     #
+##=====================================##
+assign [class="Firefox"] $ws0
+assign [class="sublime_text"] $ws1
+assign [class="discord"] $ws3
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -165,15 +178,16 @@ bindsym $mod+Control+Left move workspace to output left
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	height 25
-	font pango:monospace 9, Awesome 9
-	position top
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        height 25
+        font pango:monospace 9, Awesome 9
+        position top
         colors{
                 background #1e2846
         }
 }
 
+bindsym $mod+Mod1+l exec i3lock-fancy -p -t Alohamora
 
 for_window [class="^.*"] border pixel 0 
 
@@ -184,9 +198,9 @@ gaps outer 10
 
 exec --no-startup-id compton
 exec --no-startup-id "i3-msg 'workspace 2: ; append_layout ~/.config/i3/layouts/ws2.json'"
-exec --no-startup-id "i3-msg 'workspace 1: ; append_layout ~/.config/i3/layouts/ws1.json'"
+exec --no-startup-id exec i3-msg 'workspace 1: ; exec subl'
+exec --no-startup-id exec i3-msg 'exec firefox'
+exec --no-startup-id exec i3-msg 'exec discord'
 exec ~/.config/i3/scripts/termite.sh
-exec --no-startup-id i3-msg 'workspace "0: "; exec firefox'
-exec --no-startup-id i3-msg 'workspace "1: "; exec subl'
-exec_always xrandr --output DP-3 --mode 1680x1050 --pos 1600x0 --rotate normal --output HDMI-1 --mode 1600x900 --pos 0x150 --rotate normal --output DVI-I-1 --primary --mode 1440x900 --pos 3280x150 --rotate normal --output DP-2 --off --output DP-1 --off
+exec_always xrandr --output DP-3 --mode 1680x1050 --pos 3360x0 --rotate normal --output HDMI-1 --off --output DVI-I-1 --off --output DP-2 --mode 1680x1050 --pos 0x0 --rotate normal --output DP-1 --mode 1680x1050 --pos 1680x0 --rotate normal
 exec_always feh --no-xinerama --bg-center ~/Pictures/Wallpapers/shardslightblue.jpg
